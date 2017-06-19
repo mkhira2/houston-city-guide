@@ -10,7 +10,7 @@ var location = "Houston";
 
 var numberOfResults = 3;
 
-var APIKey = nytkey;
+var APIKey = secrets.nytkey;
 
 var welcomeMessage = location + " Guide. You can ask me for an attraction, the local news, or  say help. What will it be?";
 
