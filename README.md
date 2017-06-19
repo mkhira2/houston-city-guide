@@ -1,9 +1,9 @@
 # Houston City Guide
 
-"Alexa, what is Space City?"
-"Alexa, give me news for Space City."
-"Alexa, what are the top five things to do in Space City?"
-"Alexa, what are the best attractions in Space City?"
+"Alexa, what is Space City?"\n
+"Alexa, give me news for Space City."\n
+"Alexa, what are the top five things to do in Space City?"\n
+"Alexa, what are the best attractions in Space City?"\n
 
 Alexa, meet Houston!
 
@@ -14,8 +14,8 @@ Alexa, meet Houston!
 ## Installation
 
 ```
-Download Space City Info from the Alexa skills store
-Enjoy!
+Get 'Space City Info' from the Alexa app store
+Learn about Houston!
 ```
 
 ## License
