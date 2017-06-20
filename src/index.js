@@ -10,15 +10,13 @@ var location = "Houston";
 
 var numberOfResults = 3;
 
-var APIKey = secrets.nytkey;
+var welcomeMessage = location + " Guide. You can ask me for an attraction or  say help. What will it be?";
 
-var welcomeMessage = location + " Guide. You can ask me for an attraction, the local news, or  say help. What will it be?";
+var welcomeRepromt = "You can ask me for an attraction or  say help. What will it be?";
 
-var welcomeRepromt = "You can ask me for an attraction, the local news, or  say help. What will it be?";
+var locationOverview = "Houston is a Gulf Coast seaport city and the seat of Harris County. With an estimated 2.24 million residents as of 2017, Houston is the largest city in both the state of Texas and the Southern region of North America. It also serves as a commuting endpoint for the wildly popular Pearland suburb.";
 
-var locationOverview = "Houston is a Gulf Coast seaport city and the seat of Harris County. With an estimated 2.24 million residents as of 2017, Houston is the largest city in both the state of Texas and the Southern region of North America.  What else would you like to know?";
-
-var HelpMessage = "Here are some things you  can say: Give me an attraction. Tell me about " + location + ". Tell me the top five things to do. Tell me the local news.  What would you like to do?";
+var HelpMessage = "Here are some things you  can say: Give me an attraction. Tell me about " + location + ". Tell me the top five things to do. What would you like to do?";
 
 var moreInformation = "See your  Alexa app for  more  information."
 
@@ -34,8 +32,6 @@ var getMoreInfoMessage = "OK, " + getMoreInfoRepromtMessage;
 
 var goodbyeMessage = "OK, have a nice time in " + location + ".";
 
-var newsIntroMessage = "These are the " + numberOfResults + " most recent " + location + " headlines, you can read more on your Alexa app. ";
-
 var hearMoreMessage = "Would you like to hear about another top thing that you can do in " + location +"?";
 
 var newline = "\n";
@@ -47,7 +43,7 @@ var alexa;
 var attractions = [
     { name: "Hermann Park", content: "located just 10 minutes south of downtown Houston. The park's 445-acres and award-winning exhibits is home to a golf course, zoo, Japanese garden and Sam Houston memorial."},
     { name: "Weather Museum", content: "Dedicated to understanding weather patterns, the Weather Museum was established in 1987. It's home to exhibits, interactive activity stations, and various educational resources."},
-    { name: "Uchi", content: "The best sushi in the entire city."},
+    { name: "There's always Uchi", content: "The best sushi in the entire city."},
     { name: "Minute Maid Park", content: "Opened in 2000, Minute Maid Park is the home of the Houston Astros, the best baseball team in the MLB."},
     { name: "Potholes", content: "Found all over Houston, potholes add an element of excitement and surprise to the cityscape."}
 ];
@@ -138,43 +134,6 @@ var startSearchHandlers = Alexa.CreateStateHandler(states.SEARCHMODE, {
     'AMAZON.HelpIntent': function () {
         output = HelpMessage;
         this.emit(':ask', output, HelpMessage);
-    },
-    'getNewsIntent': function () {
-        httpGet(location, function (response) {
-
-            // Parse the response into a JSON object ready to be formatted.
-            var responseData = JSON.parse(response);
-            var cardContent = "Data provided by New York Times\n\n";
-
-            // Check if we have correct data, If not create an error speech out to try again.
-            if (responseData == null) {
-                output = "There was a problem with getting data please try again";
-            }
-            else {
-                output = newsIntroMessage;
-
-                // If we have data.
-                for (var i = 0; i < responseData.response.docs.length; i++) {
-
-                    if (i < numberOfResults) {
-                        // Get the name and description JSON structure.
-                        var headline = responseData.response.docs[i].headline.main;
-                        var index = i + 1;
-
-                        output += " Headline " + index + ": " + headline + ";";
-
-                        cardContent += " Headline " + index + ".\n";
-                        cardContent += headline + ".\n\n";
-                    }
-                }
-
-                output += " See your Alexa app for more information.";
-            }
-
-            var cardTitle = location + " News";
-
-            alexa.emit(':tellWithCard', output, cardTitle, cardContent);
-        });
     },
 
     'AMAZON.RepeatIntent': function () {

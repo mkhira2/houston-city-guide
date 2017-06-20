@@ -25,14 +25,6 @@ getMoreInfoIntent more about number {attraction}
 getMoreInfoIntent number {attraction}
 getMoreInfoIntent {attraction}
 
-getNewsIntent tell me the local news
-getNewsIntent what is the latest news
-getNewsIntent the local news
-getNewsIntent the latest news
-getNewsIntent the news
-getNewsIntent news
-getNewsIntent local news
-
 AMAZON.StopIntent stop
 AMAZON.StopIntent off
 AMAZON.StopIntent shut up
