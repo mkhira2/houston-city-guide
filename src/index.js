@@ -14,7 +14,7 @@ var welcomeMessage = location + " Guide. You can ask me for an attraction or  sa
 
 var welcomeRepromt = "You can ask me for an attraction or  say help. What will it be?";
 
-var locationOverview = "Houston is a Gulf Coast seaport city and the seat of Harris County. With an estimated 2.24 million residents as of 2017, Houston is the largest city in both the state of Texas and the Southern region of North America. It also serves as a commuting endpoint for the wildly popular Pearland suburb.";
+var locationOverview = "Houston is a Gulf Coast seaport city and the seat of Harris County. With an estimated 2.24 million residents as of 2017, Houston is the largest city in both the state of Texas and the Southern region of North America. It also serves as a commuting endpoint for the wildly popular Pearland suburb." + welcomeRepromt;
 
 var HelpMessage = "Here are some things you  can say: Give me an attraction. Tell me about " + location + ". Tell me the top five things to do. What would you like to do?";
 
